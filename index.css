@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+}
+#game{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.row{
+    display: flex;
+    align-items: center;
+}
+.cell{
+    width: 33.3333vw;
+    height: 33.3333vw;
+    background: whitesmoke;
+    border: solid black 2px;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 200px;
+    max-height: 200px;
+}
+.o:before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: solid red 2vw;
+    border-radius: 50%;
+    transform: scale(0.6);
+    animation-name: o-in;
+    -webkit-animation-name: o-in;
+    animation-duration: 0.4s;
+    -webkit-animation-duration: 0.4s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    -webkit-transform:scale(0.6) translateZ(0);
+}
+.x:before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 8%;
+    background-color: blue;
+    border-radius: 5%;
+    transform: translateX(580%) scale(0.8) rotate(45deg);
+    animation-name: x-before-in;
+    -webkit-animation-name: x-before-in;
+    animation-duration: 0.4s;
+    -webkit-animation-duration: 0.4s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    -webkit-transform: translateZ(0) translateX(580%) rotate(45deg) scale(0.8);
+}
+.x:after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 8%;
+    background-color: blue;
+    border-radius: 5%;
+    transform: translateX(580%) scale(0.8) rotate(-45deg);
+    animation-name: x-after-in;
+    -webkit-animation-name: x-after-in;
+    animation-duration: 0.4s;
+    -webkit-animation-duration: 0.4s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    -webkit-transform: translateZ(0) translateX(580%) rotate(-45deg) scale(0.8);
+}
+.win{
+    background-color: greenyellow;
+    animation-name: win-in;
+    -webkit-animation-name: win-in;
+    animation-duration: 0.4s;
+    -webkit-animation-duration: 0.4s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    -webkit-transform: translateZ(0);
+}
+#message{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    box-sizing: border-box;
+    background-color: aquamarine;
+}
+#restart_game_button{
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    max-width: 600px;
+    border: 2px solid black;
+    font-family: Arial, sans-serif;
+    background-color: lightcoral;
+}
+
+@keyframes o-in {
+    from {transform: scale(0);}
+    to {transform: scale(0.6);}
+}
+@keyframes x-before-in {
+    from {transform: translateX(580%) rotate(45deg) scale(0);}
+    to {transform:  translateX(580%) rotate(45deg) scale(0.8);}
+}
+@keyframes x-after-in {
+    from {transform: translateX(580%) rotate(-45deg) scale(0);}
+    to {transform: translateX(580%) rotate(-45deg) scale(0.8);}
+}
+@keyframes win-in {
+    from {background-color: whitesmoke;}
+    to {background-color: greenyellow;}
+}
